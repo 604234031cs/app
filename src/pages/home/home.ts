@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { BatteryStatus } from '@ionic-native/battery-status';
 
 @Component({
   selector: 'page-home',
@@ -8,18 +7,8 @@ import { BatteryStatus } from '@ionic-native/battery-status';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController,private batteryStatus: BatteryStatus) {
+  constructor(public navCtrl: NavController) {
 
   }
-
-  checkstatus(){
-    const subscription = this.batteryStatus.onChange().subscribe(status => {
-      console.log(status.level, status.isPlugged);
-   });
-   
-   // stop watch
-   subscription.unsubscribe();
-   console.log('OK');
-  }
-
+  
 }

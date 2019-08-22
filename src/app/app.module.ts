@@ -1,3 +1,5 @@
+import { JsonMenuPage } from './../pages/json-menu/json-menu';
+import { CameraPage } from './../pages/camera/camera';
 import { FlashPage } from './../pages/flash/flash';
 import { LoginPage } from './../pages/login/login';
 import { BarcodescanPage } from './../pages/barcodescan/barcodescan';
@@ -13,6 +15,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Flashlight } from '@ionic-native/flashlight';
 import { BatteryStatus } from '@ionic-native/battery-status';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 @NgModule({
   declarations: [
     MyApp,
@@ -20,7 +23,10 @@ import { BatteryStatus } from '@ionic-native/battery-status';
     ListPage,
     BarcodescanPage,
     LoginPage,
-    FlashPage
+    FlashPage,
+    CameraPage,
+    JsonMenuPage,
+  
   ],
   imports: [
     BrowserModule,
@@ -33,12 +39,16 @@ import { BatteryStatus } from '@ionic-native/battery-status';
     ListPage,
     BarcodescanPage,
     LoginPage,
-    FlashPage
+    FlashPage,
+    CameraPage,
+    JsonMenuPage,
+   
   ],
   providers: [
     StatusBar,
-    SplashScreen,SMS,BarcodeScanner,Flashlight,BatteryStatus,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    SplashScreen,SMS,BarcodeScanner,Flashlight,BatteryStatus,Camera,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+  
   ]
 })
 export class AppModule {}

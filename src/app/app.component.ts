@@ -1,3 +1,5 @@
+import { JsonMenuPage } from './../pages/json-menu/json-menu';
+import { CameraPage } from './../pages/camera/camera';
 import { FlashPage } from './../pages/flash/flash';
 import { LoginPage } from './../pages/login/login';
 import { BarcodescanPage } from './../pages/barcodescan/barcodescan';
@@ -17,18 +19,21 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any, icon : any }>;
+
+  pages: Array<{title:string,component:any,icon:any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage, icon: 'home' },
-      { title: 'List', component: ListPage, icon: 'list-box' },
-      { title: 'Login', component: LoginPage, icon: 'person' },
-      { title: 'Barcodescanner', component: BarcodescanPage,icon: 'qr-camera' },
-      { title: 'Flash', component: FlashPage,icon: 'qr-camera'}
+      { title: 'Home', component: HomePage,icon:'home'},
+      { title: 'List', component: ListPage, icon: 'list-box'},
+      { title: 'Login', component: LoginPage,icon: 'person'},
+      { title: 'Barcodescanner', component: BarcodescanPage,icon: 'qr-scanner'},
+      { title: 'Flash', component: FlashPage,icon: 'flash'},
+      { title: 'Camera', component: CameraPage,icon: 'camera'},
+      { title: 'Json Menu', component:JsonMenuPage ,icon: 'document'}
     ];
 
   }
