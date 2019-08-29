@@ -31,6 +31,9 @@ export class JsonMenuPage {
   postPage(){
     this.navCtrl.push("PostJsonPage");
   }
+  pop(){
+    this.navCtrl.pop();
+  }
 
 
 }//end

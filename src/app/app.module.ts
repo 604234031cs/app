@@ -1,3 +1,4 @@
+import {HttpClientModule} from '@angular/common/http';
 import { JsonMenuPage } from './../pages/json-menu/json-menu';
 import { CameraPage } from './../pages/camera/camera';
 import { FlashPage } from './../pages/flash/flash';
@@ -30,6 +31,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
