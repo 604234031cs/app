@@ -1,3 +1,4 @@
+import { Minproject_1Page } from './../pages/minproject-1/minproject-1';
 import {HttpClientModule} from '@angular/common/http';
 import { JsonMenuPage } from './../pages/json-menu/json-menu';
 import { CameraPage } from './../pages/camera/camera';
@@ -17,6 +18,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Flashlight } from '@ionic-native/flashlight';
 import { BatteryStatus } from '@ionic-native/battery-status';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { ApiKeyProvider } from '../providers/api-key/api-key';
 @NgModule({
   declarations: [
     MyApp,
@@ -27,6 +29,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     FlashPage,
     CameraPage,
     JsonMenuPage,
+    Minproject_1Page
   
   ],
   imports: [
@@ -44,12 +47,14 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
     FlashPage,
     CameraPage,
     JsonMenuPage,
+    Minproject_1Page
    
   ],
   providers: [
     StatusBar,
     SplashScreen,SMS,BarcodeScanner,Flashlight,BatteryStatus,Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ApiKeyProvider,
   
   ]
 })

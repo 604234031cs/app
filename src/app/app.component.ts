@@ -1,3 +1,4 @@
+import { Minproject_1Page } from './../pages/minproject-1/minproject-1';
 import { JsonMenuPage } from './../pages/json-menu/json-menu';
 import { CameraPage } from './../pages/camera/camera';
 import { FlashPage } from './../pages/flash/flash';
@@ -33,7 +34,8 @@ export class MyApp {
       { title: 'Barcodescanner', component: BarcodescanPage,icon: 'qr-scanner'},
       { title: 'Flash', component: FlashPage,icon: 'flash'},
       { title: 'Camera', component: CameraPage,icon: 'camera'},
-      { title: 'Json Menu', component:JsonMenuPage ,icon: 'document'}
+      { title: 'Json Menu', component:JsonMenuPage ,icon: 'document'},
+      { title: 'MiniProject_1', component:Minproject_1Page ,icon: 'folder'}
     ];
 
   }
