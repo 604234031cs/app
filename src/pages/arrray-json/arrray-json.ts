@@ -20,8 +20,7 @@ export class ArrrayJsonPage {
   }
   loadGameData(){
     let url ='http://localhost/shop/getAllGames_7.php';
-    this.http.get(url).subscribe(
-      (data: any) => {
+    this.http.get(url).subscribe((data: any) => {
         console.log(data);
         this.gameArray=data.games;
         

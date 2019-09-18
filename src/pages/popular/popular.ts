@@ -1,6 +1,8 @@
 import { ApiKeyProvider } from './../../providers/api-key/api-key';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DetailsMoviePage } from '../details-movie/details-movie';
+import { detachEmbeddedView } from '@angular/core/src/view';
 
 /**
  * Generated class for the PopularPage page.
@@ -16,20 +18,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PopularPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private keyprovider : ApiKeyProvider ) {
+  moviesArray:any[];
+  constructor(public navCtrl: NavController, public navParams: NavParams,private movie : ApiKeyProvider ) {
+    this.loadLetest();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PopularPage');
   }
 
- // ionViewWillEnter(){
-    //this.refreshNumItem();
-       
-    //this.bookId=this.navParams.get("bookId");
-    //this.bookRestProvider.getbookById(this.bookId).subscribe(book=>{            
-     // this.book=book;
-    //})
-  //}
+  loadLetest(){
+    this.movie.getMoviespop().subscribe(movies => {
+      this.moviesArray = movies['results'];
+      console.log(movies);
+    });
+  }
 
+  getDetails(movie){
+    this.navCtrl.push("DetailsMoviePage",movie);
+  }
 }
