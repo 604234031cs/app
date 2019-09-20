@@ -17,6 +17,22 @@ export class ApiKeyProvider {
     console.log('Hello ApiKeyProvider Provider');
   }
 
+
+  getMoviesup(){
+    const url = this.baseURL + 'movie/upcoming?' + this.apiKey;
+    return this.http.get(url);
+  }
+
+  getMoviestop(){ 
+    const url = this.baseURL + 'movie/top_rated?' + this.apiKey;
+    return this.http.get(url);
+  }
+
+  getMoviesnow(){
+    const url = this.baseURL + 'movie/now_playing?' + this.apiKey;
+    return this.http.get(url);
+  }
+
   getMoviespop(){
     const url = this.baseURL + 'movie/popular?' + this.apiKey;
     return this.http.get(url);

@@ -5,21 +5,20 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-searchbar>
-  </ion-searchbar>
 
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 
   <ion-card-content>
-  <ion-item *ngFor="let movie of moviesArray" (click)="getDetails(movie)">
-        <ion-thumbnail  item-left>
-            <img src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}">
-        </ion-thumbnail >
-        <ion-icon item-right color="medium" name="arrow-dropright"></ion-icon>
-        <h2><b>{{movie.title}}</b></h2>
-        <p>Release&nbsp;{{movie.release_date}}</p>
-        {{movie.id}}
-  </ion-item>
-</ion-card-content>
+    <ion-item *ngFor="let movie of moviesArray" (click)="getDetails(movie)">
+      <ion-thumbnail item-left>
+        <img src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}">
+      </ion-thumbnail>
+      <ion-icon item-right color="medium" name="arrow-dropright"></ion-icon>
+      <h2><b>{{movie.title}}</b></h2>
+      <p>Release&nbsp;{{movie.release_date}}</p>
+      {{movie.id}}
+    </ion-item>
+  </ion-card-content>
 
 
 

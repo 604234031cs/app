@@ -1,8 +1,7 @@
 import { ApiKeyProvider } from './../../providers/api-key/api-key';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { DetailsMoviePage } from '../details-movie/details-movie';
-import { detachEmbeddedView } from '@angular/core/src/view';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+
 
 /**
  * Generated class for the PopularPage page.
@@ -19,6 +18,8 @@ import { detachEmbeddedView } from '@angular/core/src/view';
 export class PopularPage {
 
   moviesArray:any[];
+  searchQuery: string = '';
+  items: string[];
   constructor(public navCtrl: NavController, public navParams: NavParams,private movie : ApiKeyProvider ) {
     this.loadLetest();
   }
@@ -37,4 +38,20 @@ export class PopularPage {
   getDetails(movie){
     this.navCtrl.push("DetailsMoviePage",movie);
   }
+
+
+    getItems(ev: any) {
+      //const val = ev.target.value;
+      let val = ev.target.value;
+      if (val != 0) {
+        this.movie.searchMovie(val).subscribe(movies => {
+          this.moviesArray = movies['results'];
+        });
+      }else {
+        this.loadLetest()
+    }
+  }
+  
+
+  
 }
