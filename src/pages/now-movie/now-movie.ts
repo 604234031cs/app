@@ -33,8 +33,6 @@ export class NowMoviePage {
   }
   getDetails(movie){
     this.navCtrl.push("DetailsMoviePage",movie);
-
-    
   }
 
   getItems(ev: any) {

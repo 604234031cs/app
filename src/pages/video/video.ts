@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 import { ApiKeyProvider } from '../../providers/api-key/api-key';
+import {SafeResourceUrl, DomSanitizer} from '@angular/platform-browser';
 
 @IonicPage()
 @Component({
@@ -13,7 +14,8 @@ export class VideoPage {
   videos:any=[];
   movie:any;
   url = 'https://www.youtube.com/watch?v=';
-  constructor(public navCtrl: NavController, public navParams: NavParams,private youtube: YoutubeVideoPlayer,private movieAPi : ApiKeyProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private youtube: YoutubeVideoPlayer,private movieAPi : ApiKeyProvider,public sanitizer: DomSanitizer ) {
   }
 
   ionViewDidLoad() {
@@ -25,9 +27,10 @@ export class VideoPage {
     });
 }
 
-openVideo(keyOpen){
+openVideo(keyOpen:string){
+  let dangerousVideoUrl = 'https://www.youtube.com/embed/' + keyOpen + '?rel=0&showinfo=0';
  //this.youtube.openVideo(keyOpen);
- window.open('https://www.youtube.com/watch?v='+keyOpen);
+ return this.sanitizer.bypassSecurityTrustResourceUrl(dangerousVideoUrl);
 }
 
 }

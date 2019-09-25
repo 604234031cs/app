@@ -10,6 +10,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class Minproject_1Page {
 
+
   constructor(public navCtrl: NavController, public navParams: NavParams,) {
   }
 

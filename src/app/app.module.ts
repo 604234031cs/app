@@ -21,6 +21,8 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ApiKeyProvider } from '../providers/api-key/api-key';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 import { TextToSpeech } from '@ionic-native/text-to-speech';
+import { SocialSharing } from '@ionic-native/social-sharing';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -54,7 +56,8 @@ import { TextToSpeech } from '@ionic-native/text-to-speech';
   ],
   providers: [
     StatusBar,
-    SplashScreen,SMS,BarcodeScanner,Flashlight,BatteryStatus,Camera,YoutubeVideoPlayer,TextToSpeech,
+    SplashScreen,SMS,BarcodeScanner,Flashlight,BatteryStatus,Camera,
+    YoutubeVideoPlayer,TextToSpeech,SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiKeyProvider
   ]
