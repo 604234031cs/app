@@ -17,7 +17,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Flashlight } from '@ionic-native/flashlight';
 import { BatteryStatus } from '@ionic-native/battery-status';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Camera} from '@ionic-native/camera';
 import { ApiKeyProvider } from '../providers/api-key/api-key';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 import { TextToSpeech } from '@ionic-native/text-to-speech';

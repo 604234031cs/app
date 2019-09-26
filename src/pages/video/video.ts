@@ -1,8 +1,8 @@
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 import { ApiKeyProvider } from '../../providers/api-key/api-key';
-import {SafeResourceUrl, DomSanitizer} from '@angular/platform-browser';
+import { DomSanitizer} from '@angular/platform-browser';
 
 @IonicPage()
 @Component({
@@ -13,9 +13,8 @@ export class VideoPage {
   movieVideo:any=[];
   videos:any=[];
   movie:any;
-  url = 'https://www.youtube.com/watch?v=';
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private youtube: YoutubeVideoPlayer,private movieAPi : ApiKeyProvider,public sanitizer: DomSanitizer ) {
+    private youtube :YoutubeVideoPlayer,private movieAPi : ApiKeyProvider,public sanitizer: DomSanitizer ) {
   }
 
   ionViewDidLoad() {

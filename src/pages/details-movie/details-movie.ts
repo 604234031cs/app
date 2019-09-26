@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, ActionSheetController } from 'ioni
 import { ApiKeyProvider } from '../../providers/api-key/api-key';
 import { TextToSpeech } from '@ionic-native/text-to-speech';
 import { SocialSharing } from '@ionic-native/social-sharing';
-import { text } from '@angular/core/src/render3/instructions';
+
 
 /**
  * Generated class for the DetailsMoviePage page.
@@ -19,7 +19,7 @@ import { text } from '@angular/core/src/render3/instructions';
 })
 export class DetailsMoviePage {
  moviedata:any=[];
- 
+  playing: boolean;
    constructor(public navCtrl: NavController, public navParams: NavParams,
     private movieApi:ApiKeyProvider,private tts: TextToSpeech,private socialSharing:SocialSharing,private actionSheetContronller: ActionSheetController ) {
    
@@ -36,17 +36,22 @@ openVideo(movie){
 }
 
  talk(textOrOptions:string){
-
-  this.tts.speak(textOrOptions)
-.then(() => console.log('Success'))
-  .catch((reason: any) => console.log(reason));
+  this.tts.speak(textOrOptions);
 }
+
 stop(){
-  this.tts.stop();
+this.tts.speak("").then((value)=>{
+this.playing=false;
+});
 }
 
-shareFac(movie){
-          this.socialSharing.shareViaFacebook(movie.title,movie.poster_path,movie.homepage);
+
+
+shareFac(){
+  let title = this.moviedata.title;
+  let overview = this.moviedata.overview;
+  let numberphone = "0882372538";
+  this.socialSharing.shareViaSMS('Moive title'+title+':'+overview,numberphone);
 }
 
 }//end
